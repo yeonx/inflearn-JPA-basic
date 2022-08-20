@@ -9,13 +9,15 @@
 ////@SequenceGenerator(name = "member_seq_generator", sequenceName = "member_seq")
 //public class Member {
 //
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id @GeneratedValue
 //    private Long id;
 //
 ////    @Column(unique = true,length = 10) //unique : 실행 자체에 영향을 주지 않음. DDL 자동 생성 시에 사용됨.
-//    @Column(name = "name")
+//    @Column(name = "USERNAME")
 //    private String name;
+//
+//    @Column(name = "TEAM_ID")
+//    private Long teamId;
 //
 ////    private Integer age;
 ////
@@ -34,6 +36,6 @@
 ////    @Lob //큰 컨텍스트를 넣고 싶으면
 ////    private String description;
 //
-//    public Member() {
-//    }
+////    public Member() {
+////    }
 //}
