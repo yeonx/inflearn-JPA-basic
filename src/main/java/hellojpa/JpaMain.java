@@ -83,6 +83,10 @@ public class JpaMain {
 
 //            System.out.println("========");
 
+            /**
+             * chapter 04
+             */
+
             tx.commit();
         }catch (Exception e){
             tx.rollback();
