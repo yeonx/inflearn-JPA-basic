@@ -83,6 +83,21 @@
 //
 ////            System.out.println("========");
 //
+//            /**
+//             * chapter 08
+//             */
+//            Member member = new Member();
+//            member.setUsername("hello");
+//
+//            em.persist(member);
+//
+//            em.flush();
+//            em.clear();
+//
+////            Member findMember = em.find(Member.class, member.getId());
+//            Member findMember = em.getReference(Member.class,member.getId());
+//            System.out.println("findMember.id = " + findMember.getId());
+//            System.out.println("findMember.username + " + findMember.getUsername());
 //
 //
 //            tx.commit();
@@ -93,6 +108,6 @@
 //        }
 //
 //        emf.close();
-//
 //    }
+//
 //}
