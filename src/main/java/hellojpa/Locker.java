@@ -1,7 +1,7 @@
-//package hellojpa;
-//
-//import javax.persistence.Entity;
-//
-//@Entity
-//public class Locker {
-//}
+package hellojpa;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Locker {
+}
