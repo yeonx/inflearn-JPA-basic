@@ -1,10 +1,8 @@
 package hellojpa;
 
 import javax.persistence.*;
-import java.sql.Array;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.*;
+
 
 @Entity
 //@SequenceGenerator(name = "member_seq_generator", sequenceName = "member_seq")
@@ -36,13 +34,13 @@ public class Member extends BaseEntity{
         this.favoriteFoods = favoriteFoods;
     }
 
-    public List<Address> getAddressHistory() {
-        return addressHistory;
-    }
-
-    public void setAddressHistory(List<Address> addressHistory) {
-        this.addressHistory = addressHistory;
-    }
+//    public List<Address> getAddressHistory() {
+//        return addressHistory;
+//    }
+//
+//    public void setAddressHistory(List<Address> addressHistory) {
+//        this.addressHistory = addressHistory;
+//    }
 
     @ElementCollection
     @CollectionTable(name = "FAVORITE_FOOD", joinColumns =
@@ -50,10 +48,15 @@ public class Member extends BaseEntity{
     @Column(name = "FOOD_NAME")
     private Set<String> favoriteFoods = new HashSet<>();
 
-    @ElementCollection
-    @CollectionTable(name = "ADDRESS",  joinColumns =
-    @JoinColumn(name = "MEMBER_ID"))
-    private List<Address> addressHistory = new ArrayList<>();
+//    @OrderColumn(name = "address_history_order")
+//    @ElementCollection
+//    @CollectionTable(name = "ADDRESS",  joinColumns =
+//    @JoinColumn(name = "MEMBER_ID"))
+//    private List<Address> addressHistory = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name="MEMBER_ID")
+    private List<AddressEntity> addressHistory = new ArrayList<>();
 
     @ManyToOne
     @Column(name = "TEAM_ID",insertable = false,updatable = false)

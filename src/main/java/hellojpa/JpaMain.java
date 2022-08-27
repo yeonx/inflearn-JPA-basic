@@ -102,33 +102,33 @@ public class JpaMain {
             /**
              * chapter 09
              */
-            Member member = new Member();
-            member.setUsername("member1");
-            member.setHomeAddress(new Address("homecity","street","zipcode"));
-
-            member.getFavoriteFoods("족발");
-            member.getFavoriteFoods("치킨");
-            member.getFavoriteFoods("피자");
-
-            member.getAddressHistory().add(new Address("old1","street1","zipcode1"));
-            member.getAddressHistory().add(new Address("old2","street2","zipcode2"));
-
-            em.persist(member);
-
-            em.flush();;
-            em.clear();
-
-            System.out.println("===START===");
-            Member findMember = em.find(Member.class, member.getId());
-
-            Address a = findMember.getHomeAddress();
-            findMember.setHomeAddress(new Address("newcity", a.getStreet(),a.getZipcode()));
-
-            findMember.getFavoriteFoods().remove("치킨");
-            findMember.getFavoriteFoods().add("한식");
-
-            findMember.getAddressHistory().remove(new Address("old1","street","10000"));
-            findMember.getAddressHistory().add(new Address("newCity1","street","10000"));
+//            Member member = new Member();
+//            member.setUsername("member1");
+//            member.setHomeAddress(new Address("homecity","street","zipcode"));
+//
+//            member.getFavoriteFoods("족발");
+//            member.getFavoriteFoods("치킨");
+//            member.getFavoriteFoods("피자");
+//
+//            member.getAddressHistory().add(new Address("old1","street1","zipcode1"));
+//            member.getAddressHistory().add(new Address("old2","street2","zipcode2"));
+//
+//            em.persist(member);
+//
+//            em.flush();;
+//            em.clear();
+//
+//            System.out.println("===START===");
+//            Member findMember = em.find(Member.class, member.getId());
+//
+//            Address a = findMember.getHomeAddress();
+//            findMember.setHomeAddress(new Address("newcity", a.getStreet(),a.getZipcode()));
+//
+//            findMember.getFavoriteFoods().remove("치킨");
+//            findMember.getFavoriteFoods().add("한식");
+//
+//            findMember.getAddressHistory().remove(new Address("old1","street","10000"));
+//            findMember.getAddressHistory().add(new Address("newCity1","street","10000"));
 
             tx.commit();
         }catch (Exception e){
