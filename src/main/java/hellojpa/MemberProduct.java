@@ -1,4 +1,4 @@
-package hellojpa;
-
-public class MemberProduct {
-}
+//package hellojpa;
+//
+//public class MemberProduct {
+//}

@@ -13,6 +13,8 @@ public class Order extends BaseEntity{
     @Column(name = "ORDER_ID")
     private Long id;
 
+    private int orderAmount;
+
 //    @Column(name = "MEMBER_ID")
 //    private Long memberId; //객체지향스럽지 않음. Member직접 가져와야함.
 
@@ -32,40 +34,14 @@ public class Order extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    public Long getId() {
-        return id;
-    }
+    @Embedded
+    private Address address;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Member getMember() {
-        return member;
-    }
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
+    private Product product;
 
-    public void setMember(Member member) {
-        this.member = member;
-    }
 
-    public LocalDateTime getOrderDate() {
-        return orderDate;
-    }
 
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public OrderStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(OrderStatus status) {
-        this.status = status;
-    }
-
-    public void addOderItem(OrderItem orderItem) {
-        orderItems.add(orderItem);
-        orderItem.setOrder(this);
-    }
 }
